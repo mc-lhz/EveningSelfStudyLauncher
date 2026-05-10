@@ -63,7 +63,7 @@ def time_check(wpp_path,ppt_path,start_time,end_time):
                     subprocess.Popen([wpp_path, ppt_path])
                     time.sleep(5)
                     press_button(Key.f5)
-                
+                   
                 # 修复：统一休眠，降低CPU占用
                 time.sleep(5)
             # 修复：执行完成退出线程
@@ -98,6 +98,7 @@ def get_wpp_path():
 
 if __name__ == '__main__':
     print("晚自习自动程序已启动")
+    press_button(Key.enter)
     subprocess.Popen("taskkill /f /im HiteSmartScreenPro.exe")
     subprocess.Popen("taskkill /f /im HiteSmartScreenService.exe")
     subprocess.Popen("taskkill /f /im HiteSmartScreenSrv.exe")
@@ -105,7 +106,7 @@ if __name__ == '__main__':
     wpp_path = get_wpp_path()
     start_time = 65700
     end_time = 78600
-
+    
     if not wpp_path:
         print("未读取到WPS路径，使用备用路径")
         wpp_path = r"C:\Program Files (x86)\Kingsoft\WPS Office\12.8.2.17149\office6\wpp.exe"
